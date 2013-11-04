@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------
 // CONSTANTS
 //------------------------------------------------------------------------------
-//#define VERBOSE (1)
+//#define VERBOSE     (1)
 #define LEDPIN      (13)
 #define BAUD        (57600)
 #define CLOCK_FREQ  (16000000L)
@@ -56,13 +56,13 @@ void timer_set_frequency(long desired_freq_hz) {
     return;
   }
 
-//#ifdef VERBOSE
+#ifdef VERBOSE
   Serial.print(F("counter_value  ="));  Serial.print(counter_value);
   Serial.print(F(" prescaler_index="));  Serial.print(prescaler_index);
   Serial.print(F(" = "));  Serial.print(((prescaler_index&0x1)   ));
   Serial.print(F("/"));  Serial.print(((prescaler_index&0x2)>>1));
   Serial.print(F("/"));  Serial.println(((prescaler_index&0x4)>>2));
-//#endif
+#endif
 
   // disable global interrupts
   noInterrupts();
